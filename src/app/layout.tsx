@@ -4,6 +4,7 @@ import { ThemeProvider } from "~/components/theme-provider";
 import { fonts } from "~/config/fonts";
 import "~/styles/globals.css";
 
+import { Toaster } from "~/components/ui/sonner";
 import { siteConfig } from "~/config/site";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <Header />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
