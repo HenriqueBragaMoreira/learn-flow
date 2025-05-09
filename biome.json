@@ -80,6 +80,16 @@
           }
         }
       }
+    },
+    {
+      "include": ["src/data/**/*.ts", "src/types/**/*.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": "off"
+          }
+        }
+      }
     }
   ]
 }
