@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import { CourseGrid } from "./_components/course-grid";
+
+export const metadata: Metadata = {
+  title: "Cursos",
+};
 
 export default function Home() {
   return (
