@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "~/components/header";
+import { ThemeProvider } from "~/components/theme-provider";
 import { fonts } from "~/config/fonts";
 import "~/styles/globals.css";
 
@@ -14,10 +15,17 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={fonts.sans.variable}>
+    <html lang="en" className={fonts.sans.variable} suppressHydrationWarning>
       <body>
-        <Header />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
