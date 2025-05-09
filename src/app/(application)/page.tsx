@@ -6,7 +6,7 @@ export default function Home() {
       <section className="flex flex-col gap-2">
         <h1 className="text-4xl font-bold">Aprenda e avance na sua carreira</h1>
 
-        <p className="text-xl text-gray-600">
+        <p className="text-xl text-muted-foreground">
           Explore nossos cursos cuidadosamente elaborados para impulsionar seu
           desenvolvimento profissional.
         </p>
