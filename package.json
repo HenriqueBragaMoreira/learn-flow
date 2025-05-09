@@ -12,9 +12,12 @@
     "type-check": "tsc --noEmit --incremental false"
   },
   "dependencies": {
+    "radix-ui": "^1.3.4",
+    "lucide-react": "^0.508.0",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -23,6 +26,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
+    "tw-animate-css": "^1.2.9",
+    "cva": "^1.0.0-beta.3",
     "typescript": "^5"
   }
 }
