@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Learn Flow
 
-## Getting Started
+Learn Flow é uma plataforma de cursos online projetada para ajudar os usuários a aprender novas habilidades e avançar em suas carreiras. Explore uma variedade de cursos cuidadosamente elaborados para impulsionar seu desenvolvimento profissional.
 
-First, run the development server:
+![Screenshot da Aplicação](public/learn-flow-app-screenshot.png)
+
+## ✨ Tecnologias Utilizadas
+
+Este projeto foi construído utilizando as seguintes tecnologias:
+
+*   **Framework Principal:** [Next.js](https://nextjs.org/) (v15.3.2) com [Turbopack](https://turbo.build/pack)
+*   **Linguagem:** [TypeScript](https://www.typescriptlang.org/) (v5)
+*   **Gerenciador de Pacotes:** [pnpm](https://pnpm.io/)
+*   **UI & Componentes:**
+    *   [React](https://react.dev/) (v19)
+    *   [Lucide React](https://lucide.dev/) (Ícones)
+    *   [Radix UI](https://www.radix-ui.com/) (Primitivas de UI acessíveis)
+    *   [Sonner](https://sonner.emilkowal.ski/) (Notificações/Toasts)
+*   **Estilização:**
+    *   [Tailwind CSS](https://tailwindcss.com/) (v4)
+    *   `tailwind-merge`
+    *   `tw-animate-css`
+*   **Gerenciamento de Estado:** [Zustand](https://zustand-demo.pmnd.rs/) (v5.0.4)
+*   **Animação:** [Rive React Canvas](https://rive.app/react)
+*   **Linting & Formatting:** [Biome](https://biomejs.dev/)
+*   **Deployment:** [Vercel](https://vercel.com/)
+
+## 🚀 Começando
+
+Siga estas instruções para configurar e rodar o projeto localmente.
+
+### Pré-requisitos
+
+*   [Node.js](https://nodejs.org/) (LTS recomendado - verifique a versão usada pelo Next.js 15 se necessário)
+*   [pnpm](https://pnpm.io/installation) (gerenciador de pacotes)
+
+### Clonando o Repositório
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/HenriqueBragaMoreira/learn-flow
+cd learn-flow
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Instalando as Dependências
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Use o pnpm para instalar todas as dependências do projeto:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm install
+```
 
-## Learn More
+### Rodando a Aplicação em Desenvolvimento
 
-To learn more about Next.js, take a look at the following resources:
+Para iniciar o servidor de desenvolvimento (com Turbopack, conforme configurado):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Abrindo no Navegador
 
-## Deploy on Vercel
+Após iniciar o servidor, abra seu navegador e acesse:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Você deverá ver a página inicial da aplicação Learn Flow. Agora você pode começar a explorar e modificar o código!
+
+## 🛠️ Outros Scripts Úteis
+
+O `package.json` contém outros scripts que podem ser úteis:
+
+*   `pnpm build`: Compila a aplicação para produção.
+*   `pnpm start`: Inicia o servidor de produção (após o `build`).
+*   `pnpm lint`: Executa o linter do Next.js.
+*   `pnpm check`: Verifica o código com Biome.
+*   `pnpm format`: Formata o código com Biome.
+*   `pnpm type-check`: Verifica os tipos com TypeScript.
+
