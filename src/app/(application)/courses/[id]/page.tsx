@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { courses } from "~/data/courses";
 import { formatCurrency } from "~/utils/formatCurrency";
-import { BuyCourseButton } from "./_components/buyCourseButton";
+import { BuyCourseButton } from "./_components/buy-course-button";
 
 interface CourseDetailPageProps {
   params: Promise<{

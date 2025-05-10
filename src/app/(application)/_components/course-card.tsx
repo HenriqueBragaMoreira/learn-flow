@@ -1,20 +1,26 @@
 import { Heart } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import type { Course } from "~/types/data";
+import { formatCurrency } from "~/utils/formatCurrency";
 
 interface CourseCardProps {
   course: Course;
+  isPurchased: boolean;
 }
 
-export function CourseCard({ course }: CourseCardProps) {
+export function CourseCard({ course, isPurchased }: CourseCardProps) {
   return (
     <div className="bg-card rounded-xl shadow-sm overflow-hidden border border-accent hover:shadow-md transition-shadow">
       <div className="relative">
-        <img
+        <Image
           src="https://kzmlp8t3rjvyhf733pm3.lite.vusercontent.net/placeholder.svg?height=400&width=800&text=Node.js"
           alt={course.title}
-          className="w-full h-48 object-cover"
+          className="h-48 object-cover"
+          height={400}
+          width={800}
+          priority
         />
 
         <button
@@ -23,6 +29,12 @@ export function CourseCard({ course }: CourseCardProps) {
         >
           <Heart size={20} />
         </button>
+
+        {isPurchased && (
+          <div className="absolute top-2 left-2 bg-green-200 text-green-800 text-xs font-semibold px-2 py-1 rounded">
+            Adquirido
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col gap-4 p-4">
@@ -35,11 +47,20 @@ export function CourseCard({ course }: CourseCardProps) {
         </div>
 
         <div className="flex justify-between items-center">
-          <div className="font-bold">{course.price}</div>
-
-          <Link href={`/cursos/${course.id}`}>
-            <Button variant="outline">Acessar curso</Button>
-          </Link>
+          {isPurchased ? (
+            <Link href={`/courses/${course.id}/watch`} className="w-full">
+              <Button variant="default" className="w-full">
+                Continuar assistindo
+              </Button>
+            </Link>
+          ) : (
+            <>
+              <div className="font-bold">{formatCurrency(course.price)}</div>
+              <Link href={`/courses/${course.id}`}>
+                <Button variant="outline">Acessar curso</Button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
