@@ -15,11 +15,13 @@ export function FavoriteCourseButton({ course }: { course: Course }) {
     shouldDisableRiveListeners: true,
   });
 
+  const isFavorite = isFavoriteCourse(course.id);
+
   const likeButtonInput = useStateMachineInput(
     rive,
     STATE_MACHINE_NAME,
     INPUT_NAME,
-    isFavoriteCourse(course.id)
+    isFavorite
   );
 
   function handleToggleLike() {
@@ -34,6 +36,9 @@ export function FavoriteCourseButton({ course }: { course: Course }) {
       type="button"
       onClick={() => handleToggleLike()}
       className="border border-muted-foreground rounded-full shadow-sm size-8"
+      aria-label={
+        isFavorite ? "Remover dos favoritos" : "Adicionar aos favoritos"
+      }
     >
       <RiveComponent className="size-full" />
     </button>

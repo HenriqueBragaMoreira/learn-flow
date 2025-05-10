@@ -36,7 +36,7 @@ export function CourseCard({ course, isPurchased }: CourseCardProps) {
 
       <div className="flex flex-col gap-4 p-4">
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg line-clamp-1">{course.title}</h3>
+          <p className="font-bold text-lg line-clamp-1">{course.title}</p>
 
           <p className="text-muted-foreground text-sm line-clamp-2">
             {course.description}

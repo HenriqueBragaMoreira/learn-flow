@@ -29,7 +29,10 @@ export function Header() {
           <FavoriteLink />
 
           <DropdownMenu>
-            <DropdownMenuTrigger className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-800 font-medium">
+            <DropdownMenuTrigger
+              aria-label="Menu de usuário"
+              className="size-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-800 font-medium"
+            >
               <UserRound size={20} />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
