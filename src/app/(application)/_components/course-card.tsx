@@ -1,6 +1,6 @@
-import { Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { FavoriteCourseButton } from "~/components/favorite-course-button";
 import { Button } from "~/components/ui/button";
 import type { Course } from "~/types/data";
 import { formatCurrency } from "~/utils/formatCurrency";
@@ -23,12 +23,9 @@ export function CourseCard({ course, isPurchased }: CourseCardProps) {
           priority
         />
 
-        <button
-          type="button"
-          className="absolute top-2 right-2 p-2 bg-background rounded-full shadow-sm hover:bg-accent"
-        >
-          <Heart size={20} />
-        </button>
+        <div className="absolute top-2 right-2">
+          <FavoriteCourseButton course={course} />
+        </div>
 
         {isPurchased && (
           <div className="absolute top-2 left-2 bg-green-200 text-green-800 text-xs font-semibold px-2 py-1 rounded">

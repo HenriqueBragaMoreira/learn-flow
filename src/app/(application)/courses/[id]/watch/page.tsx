@@ -1,10 +1,17 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { courses } from "~/data/courses";
 import { CoursePlayer } from "./_components/course-player";
+
+import type { Metadata } from "next";
+import { user } from "~/data/user";
 
 interface CourseWatchPageProps {
   params: Promise<{ id: string }>;
 }
+
+export const metadata: Metadata = {
+  title: "Assistir curso",
+};
 
 export default async function CourseWatchPage({
   params,
@@ -15,6 +22,12 @@ export default async function CourseWatchPage({
 
   if (!course) {
     notFound();
+  }
+
+  const isCoursePurchased = user.courses.some((c) => c.courseId === course.id);
+
+  if (!isCoursePurchased) {
+    redirect(`/courses/${id}`);
   }
 
   return (

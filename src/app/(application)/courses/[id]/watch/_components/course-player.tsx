@@ -38,16 +38,11 @@ export function CoursePlayer({ course }: CoursePlayerProps) {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4">
-        <Button size="lg" className="flex-1" onClick={handleContinueWatching}>
+      <div className="flex flex-col sm:flex-row gap-4 sm:*:data-[slot=button]:flex-1">
+        <Button size="lg" onClick={handleContinueWatching}>
           Continuar assistindo
         </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          className="flex-1"
-          onClick={handleRestart}
-        >
+        <Button variant="outline" size="lg" onClick={handleRestart}>
           <RotateCcw className="w-4 h-4 mr-2" />
           Reiniciar curso
         </Button>
@@ -66,7 +61,7 @@ export function CoursePlayer({ course }: CoursePlayerProps) {
             />
           </div>
           <div className="text-right text-sm text-gray-500 mt-1">
-            0% concluído
+            {progress}% concluído
           </div>
         </div>
       </div>

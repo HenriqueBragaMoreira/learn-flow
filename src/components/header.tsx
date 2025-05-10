@@ -1,6 +1,7 @@
-import { Heart, LogOut, Settings, UserRound, UserRoundPen } from "lucide-react";
+import { LogOut, Settings, UserRound, UserRoundPen } from "lucide-react";
 import Link from "next/link";
 import { ChangeTheme } from "./changeTheme";
+import { FavoriteLink } from "./favorite-link";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   DropdownMenu,
@@ -8,7 +9,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-
 export function Header() {
   return (
     <header className="bg-background border-b border-border shadow-sm sticky top-0 z-10">
@@ -26,17 +26,7 @@ export function Header() {
         </Link>
 
         <div className="flex items-center gap-6">
-          <Link
-            href="/favoritos"
-            className="flex items-center gap-1 hover:text-purple-600 transition-colors"
-          >
-            <Heart size={20} />
-            <span className="font-medium hidden sm:inline">Favoritos</span>
-
-            <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2 py-0.5 rounded-full">
-              1
-            </span>
-          </Link>
+          <FavoriteLink />
 
           <DropdownMenu>
             <DropdownMenuTrigger className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-800 font-medium">

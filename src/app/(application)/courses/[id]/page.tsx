@@ -1,15 +1,21 @@
-import { Heart } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { courses } from "~/data/courses";
 import { formatCurrency } from "~/utils/formatCurrency";
 import { BuyCourseButton } from "./_components/buy-course-button";
 
+import type { Metadata } from "next";
+import { FavoriteCourseButton } from "~/components/favorite-course-button";
+
 interface CourseDetailPageProps {
   params: Promise<{
     id: string;
   }>;
 }
+
+export const metadata: Metadata = {
+  title: "Detalhes do curso",
+};
 
 export async function generateStaticParams() {
   return courses.map((course) => ({
@@ -29,14 +35,12 @@ export default async function CourseDetailPage({
   }
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col gap-6 max-w-4xl mx-auto">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl sm:text-4xl font-bold">{course.title}</h1>
 
-          <button type="button" className="p-2 rounded-full hover:bg-accent">
-            <Heart className="size-6" />
-          </button>
+          <FavoriteCourseButton course={course} />
         </div>
 
         <div className="bg-card rounded-xl shadow-md overflow-hidden">
