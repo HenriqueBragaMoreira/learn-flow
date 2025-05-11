@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Header } from "~/components/header";
-import { ThemeProvider } from "~/components/theme-provider";
 import { fonts } from "~/config/fonts";
 import "~/styles/globals.css";
 
-import { Toaster } from "~/components/ui/sonner";
 import { siteConfig } from "~/config/site";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: {
@@ -31,16 +30,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={fonts.sans.variable} suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <Header />
           {children}
-          <Toaster />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
