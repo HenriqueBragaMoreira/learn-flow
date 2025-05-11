@@ -1,25 +1,28 @@
 "use client";
 
-import { RotateCcw } from "lucide-react";
-
-import { Play } from "lucide-react";
-import { useState } from "react";
+import { Play, RotateCcw } from "lucide-react";
 import { Button } from "~/components/ui/button";
+import { useCourseProgressStore } from "~/store/course-progress";
 import type { Course } from "~/types/data";
+import { AnimatedProgressBar } from "./animated-progress-bar";
 
 interface CoursePlayerProps {
   course: Course;
 }
 
 export function CoursePlayer({ course }: CoursePlayerProps) {
-  const [progress, setProgress] = useState(0);
+  const { getProgress, setProgress, restartProgress } =
+    useCourseProgressStore();
+
+  const progress = getProgress(String(course.id));
 
   function handleContinueWatching() {
-    setProgress(Math.min(progress + 10, 100));
+    const newProgress = Math.min(progress + 10, 100);
+    setProgress(String(course.id), newProgress);
   }
 
   function handleRestart() {
-    setProgress(0);
+    restartProgress(String(course.id));
   }
 
   return (
@@ -30,10 +33,7 @@ export function CoursePlayer({ course }: CoursePlayerProps) {
             <Play className="w-20 h-20 text-white opacity-70 hover:opacity-100 cursor-pointer" />
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700">
-            <div
-              className="h-full bg-purple-500"
-              style={{ width: `${progress}%` }}
-            />
+            <AnimatedProgressBar className="h-full" progress={progress} />
           </div>
         </div>
       </div>
@@ -55,9 +55,9 @@ export function CoursePlayer({ course }: CoursePlayerProps) {
         <div className="mb-6">
           <h3 className="font-medium mb-2">Seu progresso</h3>
           <div className="w-full bg-gray-200 rounded-full h-2.5">
-            <div
-              className="bg-purple-500 h-2.5 rounded-full"
-              style={{ width: `${progress}%` }}
+            <AnimatedProgressBar
+              className="h-2.5 rounded-full"
+              progress={progress}
             />
           </div>
           <div className="text-right text-sm text-gray-500 mt-1">
