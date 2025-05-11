@@ -2,6 +2,7 @@ import { LogOut, Settings, UserRound, UserRoundPen } from "lucide-react";
 import Link from "next/link";
 import { ChangeTheme } from "./changeTheme";
 import { FavoriteLink } from "./favorite-link";
+import { HeaderAnimation } from "./motion/header-animation";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   DropdownMenu,
@@ -11,7 +12,7 @@ import {
 } from "./ui/dropdown-menu";
 export function Header() {
   return (
-    <header className="bg-background border-b border-border shadow-sm sticky top-0 z-10">
+    <HeaderAnimation>
       <div className="container mx-auto p-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <Avatar>
@@ -56,6 +57,6 @@ export function Header() {
           </DropdownMenu>
         </div>
       </div>
-    </header>
+    </HeaderAnimation>
   );
 }

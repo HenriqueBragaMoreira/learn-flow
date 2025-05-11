@@ -3,6 +3,7 @@ import { courses } from "~/data/courses";
 import { CoursePlayer } from "./_components/course-player";
 
 import type { Metadata } from "next";
+import { FadeIn } from "~/components/motion/fade-in";
 import { user } from "~/data/user";
 
 interface CourseWatchPageProps {
@@ -32,11 +33,13 @@ export default async function CourseWatchPage({
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">{course.title}</h1>
+      <FadeIn>
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold mb-6">{course.title}</h1>
 
-        <CoursePlayer course={course} />
-      </div>
+          <CoursePlayer course={course} />
+        </div>
+      </FadeIn>
     </div>
   );
 }
