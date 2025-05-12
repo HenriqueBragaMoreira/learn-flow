@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface CourseProgressState {
-  progress: Record<string, number>; // { [courseId]: progressValue }
+  progress: Record<string, number>;
   setProgress: (courseId: string, progress: number) => void;
   getProgress: (courseId: string) => number;
   restartProgress: (courseId: string) => void;

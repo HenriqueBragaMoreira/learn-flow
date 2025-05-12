@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-8 flex flex-col gap-12">
-      <FadeIn>
+    <div className="container mx-auto px-4 py-8">
+      <FadeIn className="flex flex-col gap-12">
         <section className="flex flex-col gap-2">
           <h1 className="text-4xl font-bold">
             Aprenda e avance na sua carreira
